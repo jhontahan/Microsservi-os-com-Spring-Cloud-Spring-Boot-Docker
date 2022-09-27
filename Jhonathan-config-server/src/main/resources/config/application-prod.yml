@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: greeting-service
+greeting-service:
+  greeting: "Cia"
+  default-value: "Mondo"
