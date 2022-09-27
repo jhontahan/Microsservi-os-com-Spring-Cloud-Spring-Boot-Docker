@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: Jhonathan-config-server
-  profiles:
-    active:
-    - native
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jhontahan/jhonathan-config-server.git
+          default-label: main
+          search-paths:
+          - 'greeting-service*'
