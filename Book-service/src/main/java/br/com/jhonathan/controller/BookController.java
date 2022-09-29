@@ -1,6 +1,5 @@
 package br.com.jhonathan.controller;
 
-import java.util.HashMap;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import br.com.jhonathan.model.Book;
 import br.com.jhonathan.proxy.CambioProxy;
 import br.com.jhonathan.repository.BookRepository;
-import br.com.jhonathan.response.Cambio;
 
 @RestController
 @RequestMapping("book-service")
@@ -82,7 +79,7 @@ public class BookController {
 		
 		var port = environment.getProperty("local.server.port");
 		
-		livro.setEnvironment(port + " FEIGN");
+		livro.setEnvironment("Booke port: " + port + " Cambio port: " + cambio.getEnvironment());
 		livro.setCurrency(currency);
 		
 		livro.setPrice(cambio.getConvertedValue());
