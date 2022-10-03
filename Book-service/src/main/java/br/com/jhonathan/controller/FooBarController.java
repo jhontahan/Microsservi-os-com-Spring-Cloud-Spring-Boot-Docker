@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name="Foo bar")
 @RestController
 @RequestMapping("book-service")
 public class FooBarController {
@@ -19,6 +22,7 @@ public class FooBarController {
 //	@CircuitBreaker(name="default", fallbackMethod = "fallbackMethod")
 //	@RateLimiter(name="default")
 	@Bulkhead(name="default")
+	@Operation(summary = "Foo bar")
 	public String fooBar() {
 		
 		logger.info("Request to foo-bar is received!");
